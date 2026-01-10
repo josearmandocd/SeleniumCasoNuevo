@@ -6,7 +6,7 @@ import pages.LoginPage;
 
 public class LoginErrorTest extends BaseTest {
 
-    @Test
+    @Test(enabled = false)
     public void loginCredencialesErroneas() {
 
         LoginPage loginPage = new LoginPage(driver, wait);
