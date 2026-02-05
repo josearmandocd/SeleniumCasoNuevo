@@ -33,7 +33,7 @@ public class ContactUsPage {
     // Mensaje de éxito
     By successMessage = By.xpath("//div[contains(text(),'Success')]");
 
-    By btnContact = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[1]/a");
+    By btnContact = By.xpath("//a[text()=' Home']");
 
     // Constructor
     public ContactUsPage(WebDriver driver, WebDriverWait wait) {

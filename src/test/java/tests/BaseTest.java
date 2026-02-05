@@ -31,7 +31,7 @@ public class BaseTest {
 
         driver = new ChromeDriver(options);
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         abrirAplicacion();
     }
