@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class HomePage {
 
     WebDriver driver;
@@ -17,10 +19,12 @@ public class HomePage {
     By btnContact = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[1]/a");
     By homeSlider = By.id("slider-carousel");
 
+    By productsButton = By.xpath("//a[@href='/products']");
+
     // Constructor
     public HomePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
-        this.wait = wait;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     // Verificar Home visible
@@ -52,5 +56,13 @@ public class HomePage {
                 ExpectedConditions.elementToBeClickable(testCasesButton)
         ).click();
     }
+
+    //clik en productos
+    public void clickProducts() {
+        wait.until(ExpectedConditions.elementToBeClickable(productsButton)).click();
+    }
+
+
 }
+
 
