@@ -12,7 +12,7 @@ public class ProductsPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    By allProductsTitle = By.xpath("//h2[text()='All Products']");
+    By allProductsTitle = By.xpath("//h2[contains(.,'All Products')]");
     By productsList = By.cssSelector(".features_items");
     By firstViewProduct = By.xpath("(//a[text()='View Product'])[1]");
 
@@ -23,6 +23,7 @@ public class ProductsPage {
 
     // Paso 5
     public boolean isAllProductsPageVisible() {
+        System.out.println("URL actual: " + driver.getCurrentUrl());
         return wait.until(
                 ExpectedConditions.visibilityOfElementLocated(allProductsTitle)
         ).isDisplayed();

@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -33,7 +35,8 @@ public class ContactUsPage {
     // Mensaje de éxito
     By successMessage = By.xpath("//div[contains(text(),'Success')]");
 
-    By btnContact = By.xpath("//a[text()=' Home']");
+    By btnContact = By.xpath("//a[normalize-space()='Home']");
+
 
     // Constructor
     public ContactUsPage(WebDriver driver, WebDriverWait wait) {
@@ -98,7 +101,17 @@ public class ContactUsPage {
     }
 
     public void clickHogar() {
-        driver.findElement(btnContact).click();
+        WebElement homeBtn = wait.until(
+                ExpectedConditions.elementToBeClickable(btnContact)
+        );
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].click();",
+                homeBtn
+        );
+
+        wait.until(ExpectedConditions.urlContains("automationexercise.com"));
+
     }
 }
 
